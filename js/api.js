@@ -1,9 +1,7 @@
-import {CONFIG} from './config.js'
+import {CONFIG} from '../config/config.js'
 
 export async function getDataAPI(endpoint,page){
-    const API= await fetch(`${CONFIG.API_URL}${endpoint}?api_key=${CONFIG.API_KEY}&page=${page}`,{
-       
-    })
+    const API= await fetch(`${CONFIG.API_URL}${endpoint}?api_key=${CONFIG.API_KEY}&page=${page}`)
 
     const data= await API.json()
 
@@ -12,5 +10,3 @@ export async function getDataAPI(endpoint,page){
     return data
 
 }
-
-getDataAPI('discover/movie',1)

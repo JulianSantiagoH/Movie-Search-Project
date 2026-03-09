@@ -9,7 +9,7 @@
     <header>
         <nav>
             <ul>
-                <a href="./index.html"><li><img src="" alt="">Home</li></a>
+                <a href="../index.html"><li><img src="" alt="">Home</li></a>
             </ul>
             <ul>
                 <a href="./pages/movies.html"><li><img src="" alt="">Movies</li></a>
@@ -24,11 +24,16 @@
     </header>
 
     <main>
-        <h1>Welcome to Movie Search</h1>
-        <p>This project is a movie and TV show discovery website that uses the TMDB API to fetch and display entertainment content. Users can search for movies, TV series, and actors, view popular titles, and explore detailed information such as ratings, release dates, and descriptions. The interface focuses on a visual and user-friendly design with large posters, making it easy to browse and discover new content.</p>
+        <h1>Movies</h1>
+        <input type="text" placeholder="Search a Movie">
+        <div id="moviesContainer"></div>
+        <div class="pagination">
+            <button id="previousPage">Previous</button>
+            <button id="nextPage">Next</button>
+        </div>
     </main>
-    
 
-    
+
+    <script type="module" src="../js/movies.js"></script>
 </body>
 </html>
