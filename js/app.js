@@ -1,4 +1,3 @@
-import { getDataAPI } from "./api.js";
-const moviesContainer = document.getElementById('moviesContainer')
+import { loadMovies } from "./movies.js"; 
 
-getDataAPI('discover/movie',1)
+loadMovies()
