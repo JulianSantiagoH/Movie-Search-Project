@@ -3,11 +3,12 @@ import { searchActorMoviesAPI } from "../api.js";
 
 const actorInfoContainer = document.getElementById('actorInfoContainer')
 
-const parament=new URLSearchParams(window.location.search)
-const ID = parament.get('id')
-console.log(ID)
 
 export async function loadActorInfo() {
+    const parament=new URLSearchParams(window.location.search)
+    const ID = parament.get('id')
+    console.log(ID)
+
     actorInfoContainer.innerHTML = ""
     if (actorInfoContainer === '') {
         actorInfoContainer.innerHTML += `
@@ -23,7 +24,7 @@ export async function loadActorInfo() {
         <h1>${data.name}</h1>
         <h2>${data.known_for_department ?? 'Not Found'}</h2>
         <h3>${(data.gender === 1) ? 'Women' : data.gender === 2 ? 'Man' : 'Baguette'}</h3>
-        <img title='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.profile_path}">
+        <img alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.profile_path}">
         <h3>Birth Day: ${data.birthday ?? 'Not Found'}</h3>
         <h3>Death Day: ${data.deathday ?? 'Not Found'}</h3>
         <h4>${data.biography ?? 'Not Found'}</h4>

@@ -70,6 +70,14 @@ export async function loadMovies() {
         });
     }
 
+    document.querySelectorAll('.movie').forEach(actor=>{
+        actor.addEventListener('click',(e)=>{
+            if(!actor){return}
+            const idMovie=e.currentTarget.id
+            window.location.href=`movie/movieinfo.html?id=${idMovie}`
+        })
+    })
+
     if (currentPage === 1) {
         previousPage.style.display = 'none'
     } else {

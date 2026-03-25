@@ -71,6 +71,16 @@ export async function loadSeries() {
         });
     }
 
+
+    document.querySelectorAll('.serie').forEach(actor=>{
+        actor.addEventListener('click',(e)=>{
+            if(!actor){return}
+            const idMovie=e.currentTarget.id
+            window.location.href=`serie/serieinfo.html?id=${idMovie}`
+        })
+    })
+
+
     if (currentPage === 1) {
         previousPage.style.display = 'none'
     } else {
