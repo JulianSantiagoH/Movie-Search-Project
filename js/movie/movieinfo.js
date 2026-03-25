@@ -20,6 +20,7 @@ export async function loadMovieInfo() {
 
     movieInfoContainer.innerHTML += `
         <img alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.backdrop_path}">
+        <img alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.poster_path}">
         <h1>${data.original_title}</h1>
         <div>
             ${data.genres.map(element=>{
