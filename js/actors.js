@@ -39,9 +39,9 @@ export async function loadActors() {
         const data = await getDataAPI('person/popular', currentPage);
         data.results.forEach(data => {
             actorsContainer.innerHTML += `
-        <div class="actor" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_name}</h3>
-            <img src="https://image.tmdb.org/t/p/w500${data.profile_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.profile_path}">
             <h4>${data.known_for_department}</h4>
             <div>
                 <h4>${data.popularity}</h4>
@@ -55,9 +55,9 @@ export async function loadActors() {
         const data = await searchDataAPI(`search/person?query=${inputContent}&`, currentPage)
         data.results.forEach(data => {
             actorsContainer.innerHTML += `
-        <div class="actor" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_name}</h3>
-            <img src="https://image.tmdb.org/t/p/w500${data.profile_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.profile_path}">
             <h4>${data.known_for_department}</h4>
             <div>
                 <h4>${data.popularity}</h4>
@@ -69,7 +69,7 @@ export async function loadActors() {
         });
     }
 
-    document.querySelectorAll('.actor').forEach(actor=>{
+    document.querySelectorAll('.data-container').forEach(actor=>{
         actor.addEventListener('click',(e)=>{
             if(!actor){return}
             const idActor=e.currentTarget.id

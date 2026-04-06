@@ -39,7 +39,7 @@ export async function loadSeries() {
         const data = await getDataAPI('discover/tv', currentPage);
         data.results.forEach(data => {
             seriesContainer.innerHTML += `
-        <div class="serie" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_name}</h3>
             <h4>${data.first_air_date}</h4>
             <div>
@@ -47,7 +47,7 @@ export async function loadSeries() {
                 <h4>${data.vote_count}</h4>
             </div>
             <p>⭐ ${data.overview}</p>
-            <img src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
         </div>
         
         `
@@ -56,7 +56,7 @@ export async function loadSeries() {
         const data = await searchDataAPI(`search/tv?query=${inputContent}&`, currentPage)
         data.results.forEach(data => {
             seriesContainer.innerHTML += `
-        <div class="serie" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_name}</h3>
             <h4>${data.first_air_date}</h4>
             <div>
@@ -64,7 +64,7 @@ export async function loadSeries() {
                 <h4>${data.vote_count}</h4>
             </div>
             <p>⭐ ${data.overview}</p>
-            <img src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
         </div>
         
         `
@@ -72,7 +72,7 @@ export async function loadSeries() {
     }
 
 
-    document.querySelectorAll('.serie').forEach(actor=>{
+    document.querySelectorAll('.data-container').forEach(actor=>{
         actor.addEventListener('click',(e)=>{
             if(!actor){return}
             const idMovie=e.currentTarget.id

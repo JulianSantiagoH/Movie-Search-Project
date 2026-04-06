@@ -1,5 +1,7 @@
 @import url(globalvaribles.css);
 
+/* HEADER STYLES */
+
 .link[aria-current='page']{
     font-weight: bold;
     color: var(--color-secundary-text);
@@ -49,4 +51,24 @@ body{
         padding-left: 6rem;
         font-size: 1.3rem;
     }
+}
+
+
+/* CONTENT LIST (MOVIES,SERIES,ACTORS) STYLES */
+
+.main-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container{
+    margin: 0 4rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+
+.img-poster{
+    width: 100%;
 }

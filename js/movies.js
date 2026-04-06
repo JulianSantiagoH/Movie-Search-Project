@@ -38,7 +38,7 @@ export async function loadMovies() {
         const data = await getDataAPI('discover/movie', currentPage);
         data.results.forEach(data => {
             moviesContainer.innerHTML += `
-        <div class="movie" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_title}</h3>
             <h4>${data.release_date}</h4>
             <div>
@@ -46,7 +46,7 @@ export async function loadMovies() {
                 <h4>${data.vote_count}</h4>
             </div>
             <p>⭐ ${data.overview}</p>
-            <img src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
         </div>
         
         `
@@ -55,7 +55,7 @@ export async function loadMovies() {
         const data = await searchDataAPI(`search/movie?query=${inputContent}&`, currentPage)
         data.results.forEach(data => {
             moviesContainer.innerHTML += `
-        <div class="movie" id="${data.id}">
+        <div class="data-container" id="${data.id}">
             <h3>${data.original_title}</h3>
             <h4>${data.release_date}</h4>
             <div>
@@ -63,14 +63,14 @@ export async function loadMovies() {
                 <h4>${data.vote_count}</h4>
             </div>
             <p>⭐ ${data.overview}</p>
-            <img src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
         </div>
         
         `
         });
     }
 
-    document.querySelectorAll('.movie').forEach(actor=>{
+    document.querySelectorAll('.data-container').forEach(actor=>{
         actor.addEventListener('click',(e)=>{
             if(!actor){return}
             const idMovie=e.currentTarget.id

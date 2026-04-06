@@ -21,26 +21,38 @@
 
 .main-title{
     color: var(--color-primary-text);
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 .main-text{
     color: var(--color-secundary-text);
     position: relative;
+    font-size: 1.4rem;
 }
 
 @media (min-width: 1024px) {
-    .content-container{
+    .home-container{
         display: grid;
         max-width: 90%;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,2fr,1fr);
         grid-template-rows: repeat(2,1fr);
         max-height: 80dvh;
+    }
+    .main-title{
+        grid-column: 1;
+        grid-row: 1;
+        grid-area: 1rem;
+        font-size: 5rem;
+    }
+
+    .main-text{
+        grid-column: span 2;
+        font-size: 2rem;
     }
 
     .img-home{
         display: block;
-        width: 40rem;
-        grid-column: 3;
+        width: 100%;
+        grid-column: 2;
     }
 }
