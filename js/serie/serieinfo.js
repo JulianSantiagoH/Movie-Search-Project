@@ -21,50 +21,63 @@ export async function loadSerieInfo() {
 
     console.log(data)
     
-
+    serieInfoContainer.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
+    let voteAverageRounded=data.vote_average.toFixed(2)
     serieInfoContainer.innerHTML += `
-        <img alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.backdrop_path}">
-        <img alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.poster_path}">
-        <h1>${data.name}</h1>
-        <h2>Statys: ${data.status ?? 'Not Found'}</h2>
+        <button class="button-back"><a href="../series.html">Back</a></button>
+        <div class="movie-content-container">
+            <img class="movie-poster" 
+                 alt='Image Not Found' 
+                 src="https://image.tmdb.org/t/p/w500${data.poster_path}">
 
-        <div>
-            <h3>Created By</h3>
-            ${data.created_by.map(element=>{
-                return `
-                <p>${element.name}</p>
-                `
-            }).join("")}
-        </div>
+            <div class="movie-text-container">
+                <h1 class="title-text">${data.name}</h1>
 
-        <div>
-            <h3>Genres</h3>
-            ${data.genres.map(element=>{
-                return `
-                <p>${element.name}</p>
-                `
-            }).join("")}
-        </div>
-        
-        <div>
-            <h4>Popularity: ${data.popularity ?? 'Not Found'}</h4>
-            <div>
-                <h4>Vote Average: ${data.vote_average ?? 'Not Found'}</h4>
-                <h4>Vote Count: ${data.vote_count ?? 'Not Found'}</h4>
+                <div class="movie-genres">
+                    Genres: ${data.genres.map(e => `<p>${e.name}</p>`).join(",")}
+                </div>
+
+                <div class="vote-container">
+                    <h4 class="secundary-text">
+                        ⭐ ${voteAverageRounded} (${data.vote_count} votes)
+                    </h4>
+
+                    <h4 class="secundary-text">
+                        First Air: ${data.first_air_date ?? 'Not Found'}
+                    </h4>
+
+                    <h4 class="secundary-text">
+                        Duration: ${getDuration}
+                    </h4>
+                </div>
+
+                <div class="vote-container">
+                    <h4 class="secundary-text">
+                        Seasons: ${lastSeason.season_number}
+                    </h4>
+
+                    <h4 class="secundary-text">
+                        Status: ${data.status ?? 'Not Found'}
+                    </h4>
+
+                    <h4 class="secundary-text">
+                        Last Ep: ${data.last_episode_to_air?.name ?? 'Not Found'}
+                    </h4>
+                </div>
+
+                <h4 class="secundary-text">
+                    ${data.overview ?? 'Not Found'}
+                </h4>
+
+                <p class="phrase-text">
+                    ${data.tagline ?? ''}
+                </p>
+
+                <button class="button-url">
+                    <a href="${data.homepage}">Go to Watch</a>
+                </button>
             </div>
         </div>
-        
-        <div>
-            <h4>Seasons: ${lastSeason.season_number}</h4>
-            <h4>Release Date: ${data.first_air_date?? 'Not Found'}</h4>
-            <h4>Last Episode: ${data.last_episode_to_air.name ?? 'Not Found'}</h4>
-            <h4>Episodes Duration: ${getDuration ?? 'Not Found'}</h4>
-        </div>
-
-        <h4>${data.overview ?? 'Not Found'}</h4>
-        <p>${data.tagline ?? 'Not Found'}</p>
-
-        <a href="${data.homepage}">Go to Watch</a>
         
     `
         

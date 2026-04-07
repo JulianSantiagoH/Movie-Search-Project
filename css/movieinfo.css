@@ -23,6 +23,12 @@
     align-items: center;
 }
 
+ .phrase-text{
+        font-size: 2rem;
+        color: var(--color-secundary-text);
+    }
+
+
 
 @media (min-width: 1024px) {
     .movie-content-container{
@@ -46,11 +52,5 @@
         align-items: center;
         gap: 1rem;
     }
-
-    .phrase-text{
-        font-size: 2rem;
-        color: var(--color-secundary-text);
-    }
-
     
 }
