@@ -56,19 +56,46 @@ body{
 
 /* CONTENT LIST (MOVIES,SERIES,ACTORS) STYLES */
 
+.section-title{
+    color: var(--color-primary-text);
+    font-size: 4rem;
+}
+
+.input{
+    width: 50%;
+    height: 3rem;
+}
+
 .main-content-container{
     display: flex;
     flex-direction: column;
+    margin: 0 4rem;
     align-items: center;
 }
 
 .content-container{
-    margin: 0 4rem;
     display: grid;
+    text-align: center;
+    margin: 2rem 0;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    max-width: 1400px;
+    width: 100%;
+}
+
+.content-container>*{
+    border: 1px solid #FFFFFF;
 }
 
 .img-poster{
     width: 100%;
+}
+
+.title-text{
+    color: var(--color-primary-text);
+    font-size: 1.3rem;
+}
+
+.date-text,.vote-text,.overview-text{
+    color: var(--color-secundary-text);
 }

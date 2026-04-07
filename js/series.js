@@ -38,16 +38,15 @@ export async function loadSeries() {
     if (inputContent === '') {
         const data = await getDataAPI('discover/tv', currentPage);
         data.results.forEach(data => {
+            let voteAverageRounded=data.vote_average.toFixed(2)
             seriesContainer.innerHTML += `
         <div class="data-container" id="${data.id}">
-            <h3>${data.original_name}</h3>
-            <h4>${data.first_air_date}</h4>
-            <div>
-                <h4>${data.vote_average}</h4>
-                <h4>${data.vote_count}</h4>
-            </div>
-            <p>⭐ ${data.overview}</p>
+            <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <h4 class="date-text">${data.first_air_date}</h4>
+            <h4 class="vote-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
+            <p class="overview-text">⭐ ${data.overview}</p>
+            
         </div>
         
         `
@@ -55,16 +54,18 @@ export async function loadSeries() {
     } else {
         const data = await searchDataAPI(`search/tv?query=${inputContent}&`, currentPage)
         data.results.forEach(data => {
+            let voteAverageRounded=data.vote_average.toFixed(2)
             seriesContainer.innerHTML += `
         <div class="data-container" id="${data.id}">
             <h3>${data.original_name}</h3>
+            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
             <h4>${data.first_air_date}</h4>
             <div>
-                <h4>${data.vote_average}</h4>
+                <h4>${voteAverageRounded}</h4>
                 <h4>${data.vote_count}</h4>
             </div>
             <p>⭐ ${data.overview}</p>
-            <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            
         </div>
         
         `

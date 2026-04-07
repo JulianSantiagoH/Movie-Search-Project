@@ -7,7 +7,7 @@
     min-height: calc(100dvh - 8rem);
 }
 
-.content-container{
+.home-container{
     display: flex;
     flex-direction: column;
     max-width: 80%;

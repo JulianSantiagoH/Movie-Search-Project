@@ -34,19 +34,19 @@ export async function loadMovies() {
         <h1>Loading...</h1>
         `
     }
+
     if (inputContent === '') {
         const data = await getDataAPI('discover/movie', currentPage);
         data.results.forEach(data => {
+            let voteAverageRounded=data.vote_average.toFixed(2)
             moviesContainer.innerHTML += `
         <div class="data-container" id="${data.id}">
-            <h3>${data.original_title}</h3>
-            <h4>${data.release_date}</h4>
-            <div>
-                <h4>${data.vote_average}</h4>
-                <h4>${data.vote_count}</h4>
-            </div>
-            <p>⭐ ${data.overview}</p>
+            <h3 class="title-text">${data.original_title}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <h4 class="date-text">${data.release_date}</h4>
+            <h4 class="vote-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
+            <p class="overview-text">⭐ ${data.overview}</p>
+            
         </div>
         
         `
@@ -54,18 +54,16 @@ export async function loadMovies() {
     } else {
         const data = await searchDataAPI(`search/movie?query=${inputContent}&`, currentPage)
         data.results.forEach(data => {
+            let voteAverageRounded=data.vote_average.toFixed(2)
             moviesContainer.innerHTML += `
         <div class="data-container" id="${data.id}">
-            <h3>${data.original_title}</h3>
-            <h4>${data.release_date}</h4>
-            <div>
-                <h4>${data.vote_average}</h4>
-                <h4>${data.vote_count}</h4>
-            </div>
-            <p>⭐ ${data.overview}</p>
+            <h3 class="title-text">${data.original_title}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
-        </div>
-        
+            <h4 class="date-text">${data.release_date}</h4>
+            <h4 class="vote-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
+            <p class="overview-text">⭐ ${data.overview}</p>
+
+        </div>    
         `
         });
     }
