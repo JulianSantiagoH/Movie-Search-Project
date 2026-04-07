@@ -54,12 +54,10 @@ export async function loadActors() {
         data.results.forEach(data => {
             actorsContainer.innerHTML += `
         <div class="data-container" id="${data.id}">
-            <h3>${data.original_name}</h3>
+            <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.profile_path}">
-            <h4>${data.known_for_department}</h4>
-            <div>
-                <h4>${data.popularity}</h4>
-            </div>
+            <h4 class="vote-text">${data.known_for_department}</h4>
+            <h4 class="overview-text">Popularity: ${data.popularity}</h4>
             
         </div>
         
