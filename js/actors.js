@@ -12,7 +12,6 @@ let inputContent = '';
 if (actorsContainer) {
     searchContent((inputValue) => {
         inputContent = inputValue
-        console.log('el usuario escribio: ', inputValue)
         loadActors()
         searchDataAPI(`search/tv?query=${inputContent}&`, currentPage)
     })

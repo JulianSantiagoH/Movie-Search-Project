@@ -1,0 +1,81 @@
+.individual-content-container{
+    display: flex;
+    background-color: #00000098;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.individual-text-container{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+}
+
+.individual-poster{
+    width: 70%;
+}
+
+.individual-genres{
+    color: var(--color-secundary-text);
+    display: flex;
+    align-items: center;
+}
+
+.phrase-text{
+    font-size: 2rem;
+    color: var(--color-secundary-text);
+}
+
+/* only actor individual info page */
+.known-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(100px,200px));
+    text-align: center;
+}  
+/* ---- */
+
+
+
+@media (min-width: 1024px) {
+    .individual-content-container{
+        flex-direction: row;
+        height: 80dvh;
+        margin: 0 2rem;
+    }
+
+    .title-text{
+        margin: 0;
+        font-size: 3rem;
+    }
+    .individual-poster{
+        width: 20%;
+        margin: 0 2rem;
+    }
+
+    .vote-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .known-container{
+        display: grid;
+        text-align: center;
+        grid-template-columns: repeat(auto-fit,minmax(100px,300px));
+        overflow-y: scroll;
+        max-height: 11rem;
+    }  
+    
+    .actor-productions{
+        width: 11rem;
+    }
+
+    .phrase-text{
+        font-size: 2rem;
+        margin: 1rem 0;
+        color: var(--color-secundary-text);
+    }
+    
+}

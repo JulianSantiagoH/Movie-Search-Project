@@ -12,7 +12,6 @@ let inputContent = '';
 if (seriesContainer) {
     searchContent((inputValue) => {
         inputContent = inputValue
-        console.log('el usuario escribio: ', inputValue)
         loadSeries()
         searchDataAPI(`search/tv?query=${inputContent}&`, currentPage)
     })

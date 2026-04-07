@@ -5,7 +5,6 @@ const movieInfoContainer = document.getElementById('movieInfoContainer')
 export async function loadMovieInfo() {
     const parament=new URLSearchParams(window.location.search)
     const ID = parament.get('id')
-    console.log(ID)
     
     movieInfoContainer.innerHTML = ""
     if (movieInfoContainer === '') {
@@ -15,17 +14,16 @@ export async function loadMovieInfo() {
     }
     const data = await getDataIndividualAPI(`movie/${ID}`);
     const getDuration= `${data.runtime} Min`
-    console.log(data)
     
     movieInfoContainer.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
     let voteAverageRounded=data.vote_average.toFixed(2)
     movieInfoContainer.innerHTML += `
         <button class="button-back"><a href="../movies.html">Back</a></button>
-        <div class="movie-content-container">
-            <img class="movie-poster" alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.poster_path}">
-            <div class="movie-text-container">
+        <div class="individual-content-container">
+            <img class="individual-poster" alt='Image Not Found' src="https://image.tmdb.org/t/p/w500${data.poster_path}">
+            <div class="individual-text-container">
                 <h1 class="title-text">${data.original_title}</h1>
-                <div class="movie-genres">
+                <div class="individual-genres">
                     Genres: ${data.genres.map(element=>{
                         return `
                         <p>${element.name}</p>

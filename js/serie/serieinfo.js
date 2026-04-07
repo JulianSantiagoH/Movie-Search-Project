@@ -5,7 +5,6 @@ const serieInfoContainer = document.getElementById('serieInfoContainer')
 export async function loadSerieInfo() {
     const parament=new URLSearchParams(window.location.search)
     const ID = parament.get('id')
-    console.log(ID)
     
     serieInfoContainer.innerHTML = ""
     if (serieInfoContainer === '') {
@@ -19,21 +18,20 @@ export async function loadSerieInfo() {
 
     const lastSeason=data.seasons[data.seasons.length-1]
 
-    console.log(data)
     
     serieInfoContainer.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`;
     let voteAverageRounded=data.vote_average.toFixed(2)
     serieInfoContainer.innerHTML += `
         <button class="button-back"><a href="../series.html">Back</a></button>
-        <div class="movie-content-container">
-            <img class="movie-poster" 
+        <div class="individual-content-container">
+            <img class="individual-poster" 
                  alt='Image Not Found' 
                  src="https://image.tmdb.org/t/p/w500${data.poster_path}">
 
-            <div class="movie-text-container">
+            <div class="individual-text-container">
                 <h1 class="title-text">${data.name}</h1>
 
-                <div class="movie-genres">
+                <div class="individual-genres">
                     Genres: ${data.genres.map(e => `<p>${e.name}</p>`).join(",")}
                 </div>
 
