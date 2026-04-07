@@ -42,8 +42,8 @@ export async function loadActors() {
         <div class="data-container" id="${data.id}">
             <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.profile_path}">
-            <h4 class="vote-text">${data.known_for_department}</h4>
-            <h4 class="overview-text">Popularity: ${data.popularity}</h4>
+            <h4 class="secundary-text">${data.known_for_department}</h4>
+            <h4 class="secundary-text">Popularity: ${data.popularity}</h4>
             
         </div>
         
@@ -56,8 +56,8 @@ export async function loadActors() {
         <div class="data-container" id="${data.id}">
             <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.profile_path}">
-            <h4 class="vote-text">${data.known_for_department}</h4>
-            <h4 class="overview-text">Popularity: ${data.popularity}</h4>
+            <h4 class="secundary-text">${data.known_for_department}</h4>
+            <h4 class="secundary-text">Popularity: ${data.popularity}</h4>
             
         </div>
         

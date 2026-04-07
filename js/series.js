@@ -43,9 +43,9 @@ export async function loadSeries() {
         <div class="data-container" id="${data.id}">
             <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
-            <h4 class="date-text">${data.first_air_date}</h4>
-            <h4 class="vote-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
-            <p class="overview-text">⭐ ${data.overview}</p>
+            <h4 class="secundary-text">${data.first_air_date}</h4>
+            <h4 class="secundary-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
+            <p class="secundary-text">⭐ ${data.overview}</p>
             
         </div>
         
@@ -59,9 +59,9 @@ export async function loadSeries() {
         <div class="data-container" id="${data.id}">
             <h3 class="title-text">${data.original_name}</h3>
             <img class="img-poster" src="https://image.tmdb.org/t/p/w500${data.poster_path}">
-            <h4 class="date-text">${data.first_air_date}</h4>
-            <h4 class="vote-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
-            <p class="overview-text">⭐ ${data.overview}</p>
+            <h4 class="secundary-text">${data.first_air_date}</h4>
+            <h4 class="secundary-text">Vote Average: ${voteAverageRounded} (${data.vote_count} votes)</h4>
+            <p class="secundary-text">⭐ ${data.overview}</p>
             
         </div>
         
